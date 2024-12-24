@@ -16,5 +16,10 @@ From: {user_email}
 {user_message }"""
     button =st.form_submit_button("Submit")      # Adding form submit button with label "Label inside"
     if button:
-        send_email(message)
-        st.info("Message sent successfully")
+        if user_email =="":
+            st.warning("email address cannot be left blank")
+        elif user_message =="":
+            st.warning("Your message is empty")
+        else:
+            send_email(message)
+            st.info("Message sent successfully")
